@@ -31,32 +31,6 @@ jobs:
       - name: Run unit tests
         run: ./gradlew testDebugUnitTest
 
-      # Lists every test and its result on the run's Summary page
-      - name: Write test summary
-        if: always()
-        shell: python
-        run: |
-          import glob, os
-          import xml.etree.ElementTree as ET
-          rows, passed, failed, skipped = [], 0, 0, 0
-          for path in sorted(glob.glob("app/build/test-results/testDebugUnitTest/*.xml")):
-              for case in ET.parse(path).getroot().iter("testcase"):
-                  cls = case.get("classname", "").split(".")[-1]
-                  if case.find("failure") is not None or case.find("error") is not None:
-                      status, failed = "❌ failed", failed + 1
-                  elif case.find("skipped") is not None:
-                      status, skipped = "⏭️ skipped", skipped + 1
-                  else:
-                      status, passed = "✅ passed", passed + 1
-                  rows.append(f"| {cls} | {case.get('name')} | {status} | {case.get('time')}s |")
-          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as out:
-              out.write(f"## Unit tests: {passed} passed, {failed} failed, {skipped} skipped\n\n")
-              if rows:
-                  out.write("| Class | Test | Result | Time |\n|---|---|---|---|\n")
-                  out.write("\n".join(rows) + "\n")
-              else:
-                  out.write("No test results found.\n")
-
       - name: Upload test reports
         if: always()
         uses: actions/upload-artifact@v4
