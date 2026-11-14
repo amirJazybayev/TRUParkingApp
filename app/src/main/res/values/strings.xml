@@ -1,3 +1,63 @@
 <resources>
     <string name="app_name">TRUParkingApp</string>
+
+    <!-- Shared header -->
+    <string name="brand_name">ParkingMadeEasy</string>
+    <string name="brand_tagline">Find your parking spot at TRU</string>
+    <string name="logo_letter">P</string>
+    <string name="or_divider">or</string>
+
+    <!-- Log in -->
+    <string name="login_heading">Log in</string>
+    <string name="login_subheading">Welcome back. Enter your details to continue.</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="action_log_in">Log in</string>
+    <string name="action_continue_guest">Continue without registration</string>
+    <string name="guest_note">Guests can view lots and free spots. Sign up to reserve, pay or report.</string>
+    <string name="no_account">Don\'t have an account?</string>
+    <string name="action_sign_up">Sign up</string>
+    <string name="session_expired">Your session expired, please log in again</string>
+    <string name="error_login_failed">Email or password is incorrect</string>
+    <string name="error_no_internet">No internet connection</string>
+
+    <!-- Sign up -->
+    <string name="signup_heading">Sign up</string>
+    <string name="signup_subheading">Create an account to reserve and pay for parking.</string>
+    <string name="helper_email_any">Any email address works</string>
+    <string name="hint_username">Username</string>
+    <string name="helper_username">3 to 20 characters: letters, numbers and _</string>
+    <string name="label_user_type">I am a</string>
+    <string name="user_type_student">Student</string>
+    <string name="user_type_staff">Staff</string>
+    <string name="user_type_visitor">Visitor</string>
+    <string name="error_user_type">Choose Student, Staff or Visitor</string>
+    <string name="label_password_rules">Your password needs</string>
+    <string name="rule_length">At least 8 characters</string>
+    <string name="rule_uppercase">One capital letter</string>
+    <string name="rule_number">One number</string>
+    <string name="rule_symbol">One special symbol</string>
+    <string name="hint_confirm_password">Confirm password</string>
+    <string name="action_create_account">Create account</string>
+    <string name="verify_note">We\'ll send a link to verify your email address.</string>
+    <string name="have_account">Already have an account?</string>
+    <string name="error_username_taken">Username taken</string>
+    <string name="error_passwords_differ">Passwords do not match</string>
+    <!-- Errors and messages used by the activities -->
+    <string name="error_required">Required</string>
+    <string name="error_invalid_email">Enter a valid email address</string>
+    <string name="error_email_in_use">An account with this email already exists</string>
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="username_checking">Checking availability…</string>
+    <string name="username_available">Username available</string>
+    <string name="rule_met_description">%1$s, done</string>
+    <string name="rule_unmet_description">%1$s, not yet</string>
+    <string name="verify_sent">Account created. Check your inbox to verify your email.</string>
+    <string name="forgot_title">Reset your password</string>
+    <string name="forgot_message">Enter your email and we\'ll send you a link to choose a new password.</string>
+    <string name="action_send_link">Send link</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="reset_sent">If an account exists for that email, a reset link is on its way.</string>
 </resources>

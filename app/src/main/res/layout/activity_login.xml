@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pme_background"
+    android:fillViewport="true"
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding">
+
+        <include layout="@layout/layout_brand_header" />
+
+        <!-- Shown when the timed session ran out (30 min idle or 7 days) -->
+        <TextView
+            android:id="@+id/text_session_expired"
+            style="@style/Widget.TRUParking.Banner"
+            android:layout_marginTop="@dimen/section_spacing"
+            android:text="@string/session_expired"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.TRUParking.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/section_spacing">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login_heading"
+                    android:textAppearance="@style/TextAppearance.TRUParking.Heading" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/login_subheading"
+                    android:textAppearance="@style/TextAppearance.TRUParking.Body" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_login_email"
+                    style="@style/Widget.TRUParking.TextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/hint_email">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_login_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="emailAddress"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_login_password"
+                    style="@style/Widget.TRUParking.TextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_password"
+                    app:endIconMode="password_toggle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_login_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="password"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:maxLength="64"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_spacing"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <!-- Turns off the 30-minute idle limit; the 7-day limit stays -->
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/check_remember_me"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/remember_me"
+                        android:textColor="@color/pme_navy"
+                        app:buttonTint="@color/pme_green" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_forgot_password"
+                        style="@style/Widget.TRUParking.Button.Link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/forgot_password" />
+                </LinearLayout>
+
+                <!-- "Email or password is incorrect" / "No internet connection" -->
+                <TextView
+                    android:id="@+id/text_login_error"
+                    style="@style/Widget.TRUParking.Banner"
+                    android:layout_marginTop="@dimen/small_spacing"
+                    android:visibility="gone"
+                    tools:text="@string/error_login_failed"
+                    tools:visibility="visible" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/field_spacing">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_log_in"
+                        style="@style/Widget.TRUParking.Button.Primary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/action_log_in" />
+
+                    <!-- Shown over the disabled button while Firebase answers -->
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/progress_log_in"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:elevation="8dp"
+                        android:indeterminate="true"
+                        android:visibility="gone"
+                        app:indicatorColor="@color/pme_green"
+                        app:indicatorSize="@dimen/progress_size" />
+                </FrameLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- "or" divider -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/section_spacing"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/pme_grey_light" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:text="@string/or_divider"
+                android:textAppearance="@style/TextAppearance.TRUParking.Small" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/pme_grey_light" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_continue_guest"
+            style="@style/Widget.TRUParking.Button.Secondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/section_spacing"
+            android:text="@string/action_continue_guest" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_spacing"
+            android:gravity="center"
+            android:text="@string/guest_note"
+            android:textAppearance="@style/TextAppearance.TRUParking.Small" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:minHeight="@dimen/section_spacing" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_account"
+                android:textAppearance="@style/TextAppearance.TRUParking.Body" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_go_to_sign_up"
+                style="@style/Widget.TRUParking.Button.Link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/action_sign_up" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

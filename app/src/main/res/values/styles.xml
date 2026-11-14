@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Text -->
+    <style name="TextAppearance.TRUParking.Title" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/pme_navy</item>
+    </style>
+
+    <style name="TextAppearance.TRUParking.Subtitle" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">@dimen/text_subtitle</item>
+        <item name="android:textColor">@color/pme_text_secondary</item>
+    </style>
+
+    <style name="TextAppearance.TRUParking.Heading" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">@dimen/text_heading</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/pme_navy</item>
+    </style>
+
+    <style name="TextAppearance.TRUParking.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/pme_text_secondary</item>
+    </style>
+
+    <style name="TextAppearance.TRUParking.Small" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textColor">@color/pme_text_secondary</item>
+    </style>
+
+    <!-- Card -->
+    <style name="Widget.TRUParking.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/pme_surface</item>
+        <item name="cardCornerRadius">@dimen/card_radius</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="contentPadding">@dimen/card_padding</item>
+    </style>
+
+    <!-- Text fields -->
+    <style name="Widget.TRUParking.TextField" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">@dimen/field_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/field_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/field_radius</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/field_radius</item>
+        <item name="boxStrokeColor">@color/text_field_stroke</item>
+        <item name="boxBackgroundColor">@color/pme_surface</item>
+        <item name="hintTextColor">@color/pme_green</item>
+        <item name="errorTextColor">@color/pme_error</item>
+        <item name="boxStrokeErrorColor">@color/pme_error</item>
+        <item name="helperTextTextColor">@color/pme_text_secondary</item>
+        <item name="android:layout_marginTop">@dimen/field_spacing</item>
+    </style>
+
+    <!-- Buttons -->
+    <style name="Widget.TRUParking.Button.Primary" parent="Widget.Material3.Button">
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">@dimen/button_radius</item>
+        <item name="backgroundTint">@color/button_primary_bg</item>
+        <item name="android:textColor">@color/button_primary_text</item>
+    </style>
+
+    <style name="Widget.TRUParking.Button.Secondary" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">@dimen/button_radius</item>
+        <item name="strokeColor">@color/pme_grey</item>
+        <item name="android:textColor">@color/pme_navy</item>
+        <item name="backgroundTint">@color/pme_surface</item>
+    </style>
+
+    <style name="Widget.TRUParking.Button.Link" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/pme_green</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+    </style>
+
+    <!-- Student / Staff / Visitor segment -->
+    <style name="Widget.TRUParking.Button.Toggle" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="strokeColor">@color/pme_grey</item>
+        <item name="android:textColor">@color/toggle_text</item>
+        <item name="backgroundTint">@color/toggle_bg</item>
+    </style>
+
+    <!-- One line of the live password checklist; code swaps
+         ic_rule_unmet for ic_rule_met as each rule passes. -->
+    <style name="Widget.TRUParking.PasswordRule">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:drawableStart">@drawable/ic_rule_unmet</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textColor">@color/pme_text_secondary</item>
+    </style>
+
+    <!-- Error / session banner -->
+    <style name="Widget.TRUParking.Banner">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_banner_error</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/pme_error</item>
+    </style>
+</resources>

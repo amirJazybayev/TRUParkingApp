@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sign_up_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pme_background"
+    android:fillViewport="true"
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding">
+
+        <include layout="@layout/layout_brand_header" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.TRUParking.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/section_spacing">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signup_heading"
+                    android:textAppearance="@style/TextAppearance.TRUParking.Heading" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/signup_subheading"
+                    android:textAppearance="@style/TextAppearance.TRUParking.Body" />
+
+                <!-- Any email is accepted: students, staff and visitors -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_sign_up_email"
+                    style="@style/Widget.TRUParking.TextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/hint_email"
+                    app:helperText="@string/helper_email_any"
+                    app:helperTextEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_sign_up_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="emailAddress"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Checked for format and uniqueness as the user types -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_username"
+                    style="@style/Widget.TRUParking.TextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_username"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="20"
+                    app:helperText="@string/helper_username"
+                    app:helperTextEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="username"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_"
+                        android:imeOptions="actionNext"
+                        android:inputType="textNoSuggestions"
+                        android:maxLength="20"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/label_user_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/field_spacing"
+                    android:text="@string/label_user_type"
+                    android:textColor="@color/pme_navy"
+                    android:textSize="@dimen/text_body"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/toggle_user_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_spacing"
+                    app:selectionRequired="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_type_student"
+                        style="@style/Widget.TRUParking.Button.Toggle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/user_type_student" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_type_staff"
+                        style="@style/Widget.TRUParking.Button.Toggle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/user_type_staff" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_type_visitor"
+                        style="@style/Widget.TRUParking.Button.Toggle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/user_type_visitor" />
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <TextView
+                    android:id="@+id/text_user_type_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/error_user_type"
+                    android:textColor="@color/pme_error"
+                    android:textSize="@dimen/text_small"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_sign_up_password"
+                    style="@style/Widget.TRUParking.TextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_password"
+                    app:endIconMode="password_toggle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_sign_up_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="newPassword"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPassword"
+                        android:maxLength="64"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Live password checklist: each line ticks off as its rule is met -->
+                <LinearLayout
+                    android:id="@+id/password_rules"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:accessibilityLiveRegion="polite"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_password_rules"
+                        android:textAppearance="@style/TextAppearance.TRUParking.Small"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/rule_length"
+                        style="@style/Widget.TRUParking.PasswordRule"
+                        android:text="@string/rule_length" />
+
+                    <TextView
+                        android:id="@+id/rule_uppercase"
+                        style="@style/Widget.TRUParking.PasswordRule"
+                        android:text="@string/rule_uppercase" />
+
+                    <TextView
+                        android:id="@+id/rule_number"
+                        style="@style/Widget.TRUParking.PasswordRule"
+                        android:text="@string/rule_number" />
+
+                    <TextView
+                        android:id="@+id/rule_symbol"
+                        style="@style/Widget.TRUParking.PasswordRule"
+                        android:text="@string/rule_symbol" />
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_confirm_password"
+                    style="@style/Widget.TRUParking.TextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_confirm_password"
+                    app:endIconMode="password_toggle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_confirm_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="newPassword"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:maxLength="64"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- "Username taken" / "No internet connection" -->
+                <TextView
+                    android:id="@+id/text_sign_up_error"
+                    style="@style/Widget.TRUParking.Banner"
+                    android:layout_marginTop="@dimen/field_spacing"
+                    android:visibility="gone"
+                    tools:text="@string/error_username_taken"
+                    tools:visibility="visible" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <!-- Enabled by code once every field is valid -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_create_account"
+                        style="@style/Widget.TRUParking.Button.Primary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:text="@string/action_create_account" />
+
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/progress_sign_up"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:elevation="8dp"
+                        android:indeterminate="true"
+                        android:visibility="gone"
+                        app:indicatorColor="@color/pme_green"
+                        app:indicatorSize="@dimen/progress_size" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_spacing"
+                    android:gravity="center"
+                    android:text="@string/verify_note"
+                    android:textAppearance="@style/TextAppearance.TRUParking.Small" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:minHeight="@dimen/section_spacing" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/have_account"
+                android:textAppearance="@style/TextAppearance.TRUParking.Body" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_go_to_log_in"
+                style="@style/Widget.TRUParking.Button.Link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/action_log_in" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

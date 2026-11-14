@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- App logo, name and tagline. Included at the top of the log-in and sign-up screens. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="@dimen/logo_size"
+        android:layout_height="@dimen/logo_size"
+        android:background="@drawable/bg_logo_badge"
+        android:gravity="center"
+        android:importantForAccessibility="no"
+        android:text="@string/logo_letter"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/brand_name"
+        android:textAppearance="@style/TextAppearance.TRUParking.Title" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/brand_tagline"
+        android:textAppearance="@style/TextAppearance.TRUParking.Subtitle" />
+</LinearLayout>
