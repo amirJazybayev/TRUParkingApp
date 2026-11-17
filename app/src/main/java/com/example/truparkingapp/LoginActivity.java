@@ -21,7 +21,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseUser;
 
 /**
- * Entry screen. Sends a user with a live session straight to the lot map,
+ * Entry screen. Sends a user with a live session straight to the parking lots list,
  * otherwise offers Log in, Sign up and Continue without registration.
  */
 public class LoginActivity extends AppCompatActivity {
@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if (current != null && session.isActive() && !session.isExpired(now)) {
             session.touch(now);
-            openMap();
+            openParkingLots();
             return;
         }
         if (current != null || session.isActive()) {
@@ -129,7 +129,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(FirebaseUser user) {
                 session.start(rememberMe.isChecked(), false, System.currentTimeMillis());
-                openMap();
+                openParkingLots();
             }
 
             @Override
@@ -151,7 +151,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(FirebaseUser user) {
                 session.start(false, true, System.currentTimeMillis());
-                openMap();
+                openParkingLots();
             }
 
             @Override
@@ -206,8 +206,8 @@ public class LoginActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    private void openMap() {
-        Intent intent = new Intent(this, MainActivity.class);
+    private void openParkingLots() {
+        Intent intent = new Intent(this, ParkingLotsActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();

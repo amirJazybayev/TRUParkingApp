@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One lot's spots as a grid that matches the painted rows and columns. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/spot_grid_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pme_background"
+    android:orientation="vertical"
+    tools:context=".SpotGridActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_spot_grid"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/pme_background"
+        app:navigationContentDescription="@string/action_back"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="@string/brand_name"
+        app:titleTextColor="@color/pme_navy" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/screen_padding"
+            android:paddingEnd="@dimen/screen_padding"
+            android:paddingBottom="@dimen/screen_padding">
+
+            <TextView
+                android:id="@+id/text_grid_lot_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.TRUParking.Title"
+                tools:text="Lot C" />
+
+            <TextView
+                android:id="@+id/text_grid_available"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/lots_loading"
+                android:textColor="@color/spot_available"
+                android:textSize="@dimen/text_subtitle"
+                android:textStyle="bold"
+                tools:text="Available: 42 / 87" />
+
+            <!-- Legend -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/field_spacing"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:background="@drawable/bg_legend_swatch"
+                    android:backgroundTint="@color/spot_available" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="@string/legend_free"
+                    android:textAppearance="@style/TextAppearance.TRUParking.Small" />
+
+                <View
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_marginStart="@dimen/section_spacing"
+                    android:background="@drawable/bg_legend_swatch"
+                    android:backgroundTint="@color/spot_occupied" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="@string/legend_taken"
+                    android:textAppearance="@style/TextAppearance.TRUParking.Small" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_grid_error"
+                style="@style/Widget.TRUParking.Banner"
+                android:layout_marginTop="@dimen/field_spacing"
+                android:visibility="gone"
+                tools:text="@string/error_no_internet"
+                tools:visibility="visible" />
+
+            <!-- The lot plan. Scrolls sideways because wide lots don't fit a phone screen. -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.TRUParking.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/section_spacing"
+                app:contentPadding="@dimen/small_spacing">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="120dp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_spots"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:contentDescription="@string/spot_grid_description"
+                        android:overScrollMode="never"
+                        tools:itemCount="20"
+                        tools:listitem="@layout/item_spot" />
+
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/progress_spots"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        app:indicatorColor="@color/pme_green" />
+
+                    <TextView
+                        android:id="@+id/text_spots_empty"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:padding="@dimen/card_padding"
+                        android:text="@string/spots_empty"
+                        android:textAppearance="@style/TextAppearance.TRUParking.Body"
+                        android:visibility="gone" />
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/text_grid_scroll_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:text="@string/spot_grid_scroll_hint"
+                android:textAppearance="@style/TextAppearance.TRUParking.Small" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

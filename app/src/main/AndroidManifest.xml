@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TRUParkingApp">
 
-        <!-- Launcher: goes straight to the map when a session is still valid -->
+        <!-- Launcher: goes straight to the parking lots list when a session is still valid -->
         <activity
             android:name=".LoginActivity"
             android:exported="true"
@@ -30,6 +30,15 @@
             android:name=".SignUpActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".ParkingLotsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".SpotGridActivity"
+            android:exported="false"
+            android:parentActivityName=".ParkingLotsActivity" />
 
         <activity
             android:name=".MainActivity"
