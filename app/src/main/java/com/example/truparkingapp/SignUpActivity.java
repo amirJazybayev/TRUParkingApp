@@ -220,7 +220,7 @@ public class SignUpActivity extends AppCompatActivity {
                         session.start(false, false, System.currentTimeMillis());
                         Toast.makeText(SignUpActivity.this, R.string.verify_sent,
                                 Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                        Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                                 | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
