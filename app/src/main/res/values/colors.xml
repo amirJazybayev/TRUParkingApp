@@ -2,4 +2,21 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- ParkingMadeEasy palette -->
+    <color name="pme_background">#FFF4F5F7</color>
+    <color name="pme_surface">#FFFFFFFF</color>
+    <color name="pme_navy">#FF1B2433</color>
+    <color name="pme_text_secondary">#FF5E6776</color>
+    <color name="pme_green">#FF16925A</color>
+    <color name="pme_green_dark">#FF0F7446</color>
+    <color name="pme_green_light">#FFE3F4EB</color>
+    <color name="pme_grey">#FF8C95A3</color>
+    <color name="pme_grey_light">#FFE4E7EC</color>
+    <color name="pme_error">#FFC0392B</color>
+    <color name="pme_error_light">#FFFDECEA</color>
+
+    <!-- Spot states, shared with the lot map -->
+    <color name="spot_available">@color/pme_green</color>
+    <color name="spot_occupied">@color/pme_grey</color>
 </resources>

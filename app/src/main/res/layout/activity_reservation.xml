@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Spot Reserved!"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#2E7D32"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Your parking spot is temporarily held."
+        android:textSize="16sp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/text_reserved_spot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Spot"
+        android:textSize="26sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Time remaining"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/text_reservation_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="15:00"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:textColor="#2E7D32"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Complete your booking before expiry."
+        android:gravity="center"
+        android:textSize="14sp"/>
+
+    <Button
+        android:id="@+id/button_continue_booking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="#2E7D32"
+        android:textColor="#FFFFFF"
+        android:text="Continue to Booking"/>
+
+    <Button
+        android:id="@+id/button_cancel_reservation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#D32F2F"
+        android:textColor="#FFFFFF"
+        android:text="Cancel Reservation"/>
+
+</LinearLayout>

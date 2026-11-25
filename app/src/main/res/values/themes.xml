@@ -5,5 +5,24 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.TRUParkingApp" parent="Base.Theme.TRUParkingApp" />
+    <!-- ParkingMadeEasy look: light grey background, navy text, green accent.
+         Set here (not in Base) so it also applies in dark mode. -->
+    <style name="Theme.TRUParkingApp" parent="Base.Theme.TRUParkingApp">
+        <item name="colorPrimary">@color/pme_green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/pme_green_light</item>
+        <item name="colorOnPrimaryContainer">@color/pme_green_dark</item>
+        <item name="colorSecondary">@color/pme_grey</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/pme_green_light</item>
+        <item name="colorOnSecondaryContainer">@color/pme_green_dark</item>
+        <item name="colorSurface">@color/pme_surface</item>
+        <item name="colorOnSurface">@color/pme_navy</item>
+        <item name="colorOnSurfaceVariant">@color/pme_text_secondary</item>
+        <item name="colorOutline">@color/pme_grey_light</item>
+        <item name="colorError">@color/pme_error</item>
+        <item name="android:colorBackground">@color/pme_background</item>
+        <item name="android:windowBackground">@color/pme_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
 </resources>

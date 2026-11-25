@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/payment_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Complete Payment"
+        android:textSize="28sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/text_payment_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/text_payment_timer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="#D32F2F"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="Amount to Pay"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/text_payment_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="42sp"
+        android:textStyle="bold"
+        android:textColor="#2E7D32"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Payment Method"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <RadioGroup
+        android:id="@+id/radio_payment_method"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:checkedButton="@+id/radio_demo_card">
+
+        <RadioButton
+            android:id="@+id/radio_demo_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="Credit / Debit Card (Demo)"/>
+
+        <RadioButton
+            android:id="@+id/radio_demo_wallet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="Digital Wallet (Demo)"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="This is a simulated payment. No real money will be charged."
+        android:textSize="14sp"/>
+
+    <ProgressBar
+        android:id="@+id/progress_payment"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/button_pay_now"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#2E7D32"
+        android:textColor="#FFFFFF"
+        android:text="Pay Now"/>
+
+    <Button
+        android:id="@+id/button_back_booking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back to Booking"/>
+
+</LinearLayout>

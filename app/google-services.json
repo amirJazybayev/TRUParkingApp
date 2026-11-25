@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "546100746482",
+    "project_id": "truparkingapp",
+    "storage_bucket": "truparkingapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546100746482:android:cd3e69adeb22e316afd86b",
+        "android_client_info": {
+          "package_name": "com.example.truparkingapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoJ2yBwfDlPW89gLo3VZh98H3lJgzyXOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

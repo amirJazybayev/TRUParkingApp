@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One cell of the spot grid. Empty cells (no spot painted there) are made invisible. -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/text_spot"
+    android:layout_width="@dimen/spot_tile_size"
+    android:layout_height="@dimen/spot_tile_size"
+    android:layout_margin="@dimen/spot_tile_gap"
+    android:background="@drawable/bg_spot_tile"
+    android:backgroundTint="@color/spot_available"
+    android:elevation="1dp"
+    android:gravity="center"
+    android:textColor="@color/white"
+    android:textSize="@dimen/text_small"
+    android:textStyle="bold"
+    tools:text="12" />
