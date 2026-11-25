@@ -24,6 +24,13 @@ import java.util.List;
  */
 public class SpotGridAdapter extends RecyclerView.Adapter<SpotGridAdapter.SpotViewHolder> {
 
+    public interface OnSpotClickListener{
+        void onSpotClicked(Spot spot);
+    }
+    private final OnSpotClickListener clickListener;
+    public SpotGridAdapter(OnSpotClickListener clickListener){
+        this.clickListener = clickListener;
+    }
     private int rows;
     private int columns;
     private Spot[] cells = new Spot[0];
@@ -62,7 +69,7 @@ public class SpotGridAdapter extends RecyclerView.Adapter<SpotGridAdapter.SpotVi
         holder.bind(cells[position]);
     }
 
-    static class SpotViewHolder extends RecyclerView.ViewHolder {
+    class SpotViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView tile;
 
@@ -75,6 +82,9 @@ public class SpotGridAdapter extends RecyclerView.Adapter<SpotGridAdapter.SpotVi
             if (spot == null) {
                 // Keep the space so the other spots stay in their real positions.
                 tile.setVisibility(View.INVISIBLE);
+                tile.setOnClickListener(null);
+                tile.setClickable(false);
+                tile.setFocusable(false);
                 tile.setText(null);
                 tile.setContentDescription(null);
                 tile.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
@@ -84,6 +94,15 @@ public class SpotGridAdapter extends RecyclerView.Adapter<SpotGridAdapter.SpotVi
             tile.setVisibility(View.VISIBLE);
             tile.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
             tile.setText(String.valueOf(spot.getNumber()));
+            if(free){
+                tile.setOnClickListener(v -> clickListener.onSpotClicked(spot));
+                tile.setClickable(true);
+                tile.setFocusable(true);
+            }else{
+                tile.setOnClickListener(null);
+                tile.setClickable(false);
+                tile.setFocusable(false);
+            }
             ViewCompat.setBackgroundTintList(tile, ColorStateList.valueOf(
                     ContextCompat.getColor(tile.getContext(),
                             free ? R.color.spot_available : R.color.spot_occupied)));

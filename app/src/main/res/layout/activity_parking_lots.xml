@@ -39,6 +39,14 @@
             android:text="@string/lots_loading"
             android:textAppearance="@style/TextAppearance.TRUParking.Subtitle"
             tools:text="3 lots · 42 free spots right now" />
+        <Button
+            android:id="@+id/button_active_bookings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="My Active Bookings"
+            android:backgroundTint="#2E7D32"
+            android:textColor="#FFFFFF"/>
 
         <TextView
             android:id="@+id/text_guest_note"

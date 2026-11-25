@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,6 +53,8 @@ public class ParkingLotsActivity extends BaseActivity implements LotAdapter.OnLo
     private TextView emptyText;
     private CircularProgressIndicator progress;
 
+    Button activeBookingsButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +74,23 @@ public class ParkingLotsActivity extends BaseActivity implements LotAdapter.OnLo
 
         adapter = new LotAdapter(this);
         RecyclerView recycler = findViewById(R.id.recycler_lots);
-        recycler.setAdapter(adapter);}
+        recycler.setAdapter(adapter);
+
+        activeBookingsButton = findViewById(R.id.button_active_bookings);
+        activeBookingsButton.setOnClickListener(v -> {
+
+            Intent intent = new Intent(
+                    this,
+                    ActiveBookingsActivity.class
+            );
+
+            startActivity(intent);
+        });
+    }
+
+
+
+
 
     @Override
     protected void onStart() {

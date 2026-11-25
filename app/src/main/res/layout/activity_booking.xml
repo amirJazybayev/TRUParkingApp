@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/booking_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Complete Booking"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/text_booking_lot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Parking Lot"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/text_booking_spot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Parking Spot"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Hourly rate: $2.00"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/text_booking_timer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Reservation expires in: 15:00"
+            android:textSize="16sp"
+            android:textColor="#D32F2F"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="#BDBDBD"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Select Parking Duration"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <RadioGroup
+            android:id="@+id/radio_parking_duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical"
+            android:checkedButton="@+id/radio_one_hour">
+
+            <RadioButton
+                android:id="@+id/radio_one_hour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="1 Hour — $2.00"
+                android:textSize="16sp"/>
+
+            <RadioButton
+                android:id="@+id/radio_two_hours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="2 Hours — $4.00"
+                android:textSize="16sp"/>
+
+            <RadioButton
+                android:id="@+id/radio_three_hours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="3 Hours — $6.00"
+                android:textSize="16sp"/>
+
+            <RadioButton
+                android:id="@+id/radio_four_hours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="4 Hours — $8.00"
+                android:textSize="16sp"/>
+
+            <RadioButton
+                android:id="@+id/radio_eight_hours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="8 Hours — $16.00"
+                android:textSize="16sp"/>
+
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="#BDBDBD"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Total Amount"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/text_booking_total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="$2.00"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:textColor="#2E7D32"/>
+
+        <Button
+            android:id="@+id/button_proceed_payment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#2E7D32"
+            android:textColor="#FFFFFF"
+            android:text="Proceed to Payment"/>
+
+        <Button
+            android:id="@+id/button_back_reservation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Back to Reservation"/>
+
+    </LinearLayout>
+
+</ScrollView>

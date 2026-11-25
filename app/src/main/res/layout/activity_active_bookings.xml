@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/active_bookings_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_active_bookings"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:title="My Active Bookings"
+        android:navigationIcon="@android:drawable/ic_menu_revert"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="16dp"
+        android:text="Your current parking sessions"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/text_active_booking_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="12dp"
+        android:textSize="14sp"
+        android:textColor="#2E7D32"
+        android:textStyle="bold"/>
+
+    <ProgressBar
+        android:id="@+id/progress_active_bookings"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"/>
+
+    <TextView
+        android:id="@+id/text_no_active_bookings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:padding="24dp"
+        android:gravity="center"
+        android:text="No active bookings.\nReserve a parking spot to get started!"
+        android:textSize="18sp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/text_active_bookings_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:gravity="center"
+        android:textColor="#D32F2F"
+        android:visibility="gone"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_active_bookings"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:padding="16dp"/>
+
+</LinearLayout>

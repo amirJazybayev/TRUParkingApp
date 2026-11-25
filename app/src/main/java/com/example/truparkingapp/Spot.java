@@ -12,6 +12,9 @@ import com.google.firebase.firestore.IgnoreExtraProperties;
 @IgnoreExtraProperties
 public class Spot {
 
+    private String bookingId;
+    private Timestamp sessionEndsAt;
+
     public static final String STATUS_FREE = "FREE";
     public static final String STATUS_TAKEN = "TAKEN";
     public static final String STATUS_RESERVED = "RESERVED";
@@ -43,12 +46,24 @@ public class Spot {
      */
     @Exclude
     public boolean isAvailable() {
+
+        Timestamp now = Timestamp.now();
+
         if (STATUS_FREE.equals(status)) {
             return true;
         }
-        return STATUS_RESERVED.equals(status)
-                && reservedUntil != null
-                && reservedUntil.compareTo(Timestamp.now()) < 0;
+
+        if (STATUS_RESERVED.equals(status)) {
+            return reservedUntil != null
+                    && reservedUntil.compareTo(now) <= 0;
+        }
+
+        if (STATUS_TAKEN.equals(status)) {
+            return sessionEndsAt != null
+                    && sessionEndsAt.compareTo(now) <= 0;
+        }
+
+        return false;
     }
 
     public String getId() {
@@ -121,5 +136,21 @@ public class Spot {
 
     public void setUpdatedAt(Timestamp updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getBookingId() {
+        return bookingId;
+    }
+
+    public void setBookingId(String bookingId) {
+        this.bookingId = bookingId;
+    }
+
+    public Timestamp getSessionEndsAt() {
+        return sessionEndsAt;
+    }
+
+    public void setSessionEndsAt(Timestamp sessionEndsAt) {
+        this.sessionEndsAt = sessionEndsAt;
     }
 }
